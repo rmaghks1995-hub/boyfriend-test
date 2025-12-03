@@ -35,27 +35,19 @@
         }
 
         .ad-banner {
-            background: linear-gradient(90deg, #f8f8f8 0%, #fff 50%, #f8f8f8 100%);
-            padding: 15px;
+            background: #fff;
+            padding: 10px;
             text-align: center;
             border-bottom: 1px solid #eee;
-            position: sticky;
-            top: 0;
-            z-index: 100;
         }
 
         .ad-banner-content {
             max-width: 728px;
-            height: 90px;
             margin: 0 auto;
-            background: linear-gradient(135deg, #e0e0e0 0%, #f5f5f5 100%);
-            border-radius: 8px;
+            min-height: 90px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #999;
-            font-size: 14px;
-            border: 2px dashed #ccc;
         }
 
         .container {
@@ -361,21 +353,18 @@
         }
 
         .side-ad {
-            background: linear-gradient(135deg, #f5f5f5 0%, #fff 100%);
+            background: #fff;
             border-radius: 15px;
-            padding: 20px;
+            padding: 15px;
             margin: 20px 0;
             text-align: center;
-            border: 2px dashed #ddd;
         }
 
         .side-ad-content {
-            height: 250px;
+            min-height: 250px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #999;
-            font-size: 14px;
         }
 
         .footer {
@@ -397,10 +386,6 @@
             .result-type {
                 font-size: 1.6rem;
             }
-            
-            .ad-banner-content {
-                height: 60px;
-            }
 
             .main-image, .result-image {
                 max-width: 280px;
@@ -413,9 +398,14 @@
     </style>
 </head>
 <body>
+    <!-- 상단 광고 배너 728x90 -->
     <div class="ad-banner">
         <div class="ad-banner-content">
-            광고 영역 (728x90) - Google AdSense 코드 삽입
+            <ins class="kakao_ad_area" style="display:none;"
+            data-ad-unit = "DAN-ViaYY4FGcJFjL2jr"
+            data-ad-width = "728"
+            data-ad-height = "90"></ins>
+            <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
         </div>
     </div>
 
@@ -436,9 +426,14 @@
             <button class="start-btn" onclick="startTest()">테스트 시작하기</button>
         </div>
 
+        <!-- 중간 광고 300x250 -->
         <div class="side-ad" id="midAd1">
             <div class="side-ad-content">
-                광고 영역 (300x250) - 네이티브 광고
+                <ins class="kakao_ad_area" style="display:none;"
+                data-ad-unit = "DAN-PyZHETHKatyDQMWR"
+                data-ad-width = "300"
+                data-ad-height = "250"></ins>
+                <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
             </div>
         </div>
 
@@ -473,9 +468,14 @@
                 <button class="retry-btn" onclick="retryTest()">다시 테스트하기</button>
             </div>
 
+            <!-- 결과 페이지 광고 300x250 -->
             <div class="side-ad">
                 <div class="side-ad-content">
-                    광고 영역 (300x250) - 결과 페이지 광고
+                    <ins class="kakao_ad_area" style="display:none;"
+                    data-ad-unit = "DAN-PyZHETHKatyDQMWR"
+                    data-ad-width = "300"
+                    data-ad-height = "250"></ins>
+                    <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
                 </div>
             </div>
         </div>
@@ -691,9 +691,7 @@
         }
 
         function startTest() {
-            // 질문 순서 섞기
             shuffledQuestions = shuffleArray(questions);
-            // 각 질문의 옵션도 섞기
             shuffledQuestions = shuffledQuestions.map(q => ({
                 ...q,
                 options: shuffleArray(q.options)
